@@ -1,0 +1,101 @@
+{
+  "name": "trustlens",
+  "displayName": "TrustLens",
+  "description": "See what your AI-powered IDE can access — extensions, MCP servers, workspace automation, devcontainers, scripts, and secrets in one polished dashboard.",
+  "version": "0.1.0",
+  "publisher": "trustlens",
+  "private": true,
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": ["Other", "Linters"],
+  "keywords": ["security", "trust", "extension scanner", "mcp", "ai", "devcontainer"],
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "trustlens.openDashboard",
+        "title": "TrustLens: Open Dashboard",
+        "category": "TrustLens"
+      },
+      {
+        "command": "trustlens.scanEnvironment",
+        "title": "TrustLens: Scan My Dev Environment",
+        "category": "TrustLens"
+      },
+      {
+        "command": "trustlens.exportMarkdown",
+        "title": "TrustLens: Export Markdown Report",
+        "category": "TrustLens"
+      },
+      {
+        "command": "trustlens.exportJson",
+        "title": "TrustLens: Export JSON Report",
+        "category": "TrustLens"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "trustlens",
+          "title": "TrustLens",
+          "icon": "media/sidebar-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "trustlens": [
+        {
+          "id": "trustlens.summary",
+          "name": "Summary",
+          "type": "tree"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "TrustLens",
+      "properties": {
+        "trustlens.scanOnStartup": {
+          "type": "boolean",
+          "default": false,
+          "description": "Run a TrustLens scan automatically when VS Code starts."
+        },
+        "trustlens.includeBuiltinExtensions": {
+          "type": "boolean",
+          "default": false,
+          "description": "Include Microsoft built-in extensions in scan results."
+        },
+        "trustlens.ignoredExtensionPublishers": {
+          "type": "array",
+          "default": ["netxil"],
+          "items": {
+            "type": "string"
+          },
+          "description": "Publisher IDs to omit from extension scan results."
+        },
+        "trustlens.verifyPublishersOnline": {
+          "type": "boolean",
+          "default": true,
+          "description": "Query the Visual Studio Marketplace when installed extension metadata does not include publisher verification."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run build",
+    "build": "npm run build:webview && npm run build:extension",
+    "build:extension": "node esbuild.js --production",
+    "build:webview": "cd webview-ui && npm run build",
+    "watch": "node esbuild.js --watch",
+    "install:all": "npm install && cd webview-ui && npm install",
+    "type-check": "tsc --noEmit && cd webview-ui && tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.85.0",
+    "esbuild": "^0.20.0",
+    "typescript": "^5.4.0"
+  }
+}
