@@ -36,6 +36,10 @@ npm run build
 
 Launch the extension from VS Code with the included Extension Development Host configuration, then run `TrustLens: Open Dashboard`.
 
+## Continuous Integration
+
+GitHub Actions runs `npm ci`, webview dependency installation, `npm run type-check`, and `npm run build` on every push and pull request.
+
 ## Settings
 
 - `trustlens.scanOnStartup`: open and scan automatically when VS Code starts.
