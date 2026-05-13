@@ -1,5 +1,6 @@
 .vscode/**
 .vscode-test/**
+.github/**
 src/**
 webview-ui/src/**
 webview-ui/node_modules/**
@@ -14,6 +15,9 @@ esbuild.js
 tsconfig.json
 **/*.map
 **/*.ts
+TrustLens_refined_strategy.md
+imgs/**
+media/icon.svg
 !dist/**
 !webview-ui/dist/**
 .gitignore

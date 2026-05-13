@@ -1,8 +1,20 @@
 # TrustLens
 
-TrustLens is a local-first VS Code extension that maps risk across an AI-powered development environment. It scans installed extensions, MCP servers, workspace automation, dev containers, package scripts, and sensitive local locations so developers can see what can run commands, read files, reach the network, or touch secrets.
+TrustLens by NetXil is a local-first VS Code extension that maps risk across an AI-powered development environment. It scans installed extensions, MCP servers, workspace automation, dev containers, package scripts, and sensitive local locations so developers can see what can run commands, read files, reach the network, or touch secrets before they grant trust.
 
 ![TrustLens dashboard preview](imgs/preview.png)
+
+## Why TrustLens
+
+Modern IDEs are no longer simple editors. Extensions, coding agents, MCP servers, dev containers, workspace tasks, and package scripts can all access powerful local capabilities. TrustLens gives developers a single dashboard for understanding that local attack surface without uploading source code or secrets.
+
+TrustLens is designed for developers who want fast, practical answers:
+
+- Which installed extensions can spawn shell commands?
+- Which tools appear able to make outbound network requests?
+- Which workspace files can trigger automation?
+- Which MCP servers are configured locally?
+- Which sensitive locations are reachable by the IDE process?
 
 ## Highlights
 
@@ -13,6 +25,10 @@ TrustLens is a local-first VS Code extension that maps risk across an AI-powered
 - Checks workspace tasks, launch configs, settings, dev containers, and npm scripts.
 - Reports sensitive local locations without opening secret contents.
 - Exports scan results as Markdown or JSON.
+
+## Privacy
+
+TrustLens runs locally inside VS Code. It does not upload source code, workspace files, or secret contents. Secret checks only report whether sensitive locations exist and are reachable.
 
 ## Development
 

@@ -1,11 +1,20 @@
 {
   "name": "trustlens",
   "displayName": "TrustLens",
-  "description": "See what your AI-powered IDE can access — extensions, MCP servers, workspace automation, devcontainers, scripts, and secrets in one polished dashboard.",
+  "description": "Local-first risk visibility for VS Code extensions, MCP servers, workspace automation, scripts, and sensitive developer secrets.",
   "version": "0.1.0",
-  "publisher": "trustlens",
-  "private": true,
+  "publisher": "netxil",
+  "private": false,
+  "icon": "media/icon.png",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/netxil/TrustLens.git"
+  },
+  "homepage": "https://github.com/netxil/TrustLens#readme",
+  "bugs": {
+    "url": "https://github.com/netxil/TrustLens/issues"
+  },
   "engines": {
     "vscode": "^1.85.0"
   },
